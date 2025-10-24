@@ -5,9 +5,9 @@ Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
 ---
 
 ## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
+- **Nama**  :virlil a'inun susbroto  
+- **NIM**   :250202913 
+- **Kelas** :1 ikrb
 
 ---
 
@@ -60,12 +60,20 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ---
 
 ## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
+1. Apa fungsi dari perintah chmod?
+Perintah chmod berfungsi untuk mengubah izin akses  pada (file) atau direktori dalam sistem operasi Linux dan sistem operasi berbasis Unix lainnya. Izin akses 
+digunakan untuk mengatur izin untuk tiga kategori pengguna:Pemilik (User/Owner),Grup (Group),Lainnya (Others/World)
+2. Apa arti dari kode permission rwxr-xr--?
+Rwx :untuk pemilik berkas/user
+  w (write): Pemilik berkas memiliki izin untuk mengubah atau menulis ke berkas. 
+  x (execute): Pemilik berkas memiliki izin untuk menjalankan berkas (jika berkas tersebut adalah program yang dapat dieksekusi)
+  atau masuk ke dalam direktori.
+r-x:untuk grup
+   	r (read): Anggota grup memiliki izin untuk membaca berkas.
+  	- (no write): Anggota grup tidak memiliki izin untuk mengubah atau menulis ke berkas.
+   	x (execute): Anggota grup memiliki izin untuk menjalankan berkas.
+r-- :untuk lainnya/others
+3. Jelaskan perbedaan antara chown dan chmod?
 
 ---
 
