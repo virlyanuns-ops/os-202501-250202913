@@ -5,7 +5,6 @@ Topik: Manajemen File dan Permission di Linux
 ---
 
 ## Identitas
-
 - **Nama**  :virli a'inun subroto   
 - **NIM**   :250202913    
 - **Kelas** :1ikrb
@@ -29,6 +28,8 @@ Cara Kerja Sistem File di Linux
 Manajemen Hak Akses File Linux menggunakan struktur file berbasis pohon yang dimulai dari direktori root (/), di mana file dan direktori diorganisir secara logis. 
 Manajemen Hak Akses File Setiap file di Linux memiliki hak akses yang terdiri dari read (baca), write (tulis), dan execute (eksekusi), yang diberlakukan untuk owner, group , dan others.
 Interpretasi Output Perintah Dasar: Perintah Linux menghasilkan output standar yang dapat berupa teks, daftar file, atau pesan error, yang yang berguna untuk membantu pengguna memahami status sistem.
+
+
 ---
 
 ## Langkah Praktikum
@@ -99,8 +100,7 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ## Quiz
 
 1.Apa fungsi dari perintah chmod?
- chmod berfungsi untuk mengubah izin akses  pada (file) atau direktori dalam sistem operasi Linux dan sistem operasi berbasis Unix lainnya. Izin akses 
-digunakan untuk mengatur izin untuk tiga kategori pengguna:Pemilik ,Grup,Lainnya (Others/World)
+ chmod berfungsi untuk mengubah izin akses  pada (file) atau direktori dalam sistem operasi Linux dan sistem operasi berbasis Unix lainnya. Izin akses digunakan untuk mengatur izin untuk tiga kategori pengguna:Pemilik ,Grup,Lainnya (Others/World)
 
 2.Apa arti dari kode permission rwxr-xr--?
 Rwx :untuk pemilik berkas/user
