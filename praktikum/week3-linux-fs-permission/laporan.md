@@ -100,6 +100,8 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 2.Melalui analisis output perintah dan penyusunan laporan, menekankan kemampuan interpretasi hasil eksekusi Linux serta dokumentasi yang tepat waktu ke Git Repository.
 
 3.Secara keseluruhan, praktikum ini membangun fondasi kuat untuk penggunaan Linux dalam tugas sehari-hari, seperti administrasi sistem dan pengembangan perangkat lunak.
+
+
 ---
 
 ## Quiz
