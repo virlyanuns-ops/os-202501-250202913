@@ -55,13 +55,14 @@ ls -l
 cd /tmp
 ls -a
 ```
-
+```bash
 cat /etc/passwd | head -n 5
 
 echo "Hello <NAME><NIM>" > percobaan.txt
 ls -l percobaan.txt
 chmod 600 percobaan.txt
 ls -l percobaan.txt
+```
 ---
 
 ## Hasil Eksekusi
