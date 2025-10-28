@@ -54,6 +54,7 @@ pwd
 ls -l
 cd /tmp
 ls -a
+```
 
 cat /etc/passwd | head -n 5
 
