@@ -5,15 +5,10 @@ Topik: Manajemen File dan Permission di Linux
 ---
 
 ## Identitas
-<<<<<<< HEAD
 - **Nama**  :virli a'inun subroto   
 - **NIM**   :250202913    
 - **Kelas** :1ikrb
-=======
-- **Nama**  :
-- **NIM**   :
-- **Kelas** :
->>>>>>> 8314c049c4a8089d8d1f6f65ae90df017d769b03
+
 
 ---
 
@@ -33,6 +28,8 @@ Cara Kerja Sistem File di Linux
 Manajemen Hak Akses File Linux menggunakan struktur file berbasis pohon yang dimulai dari direktori root (/), di mana file dan direktori diorganisir secara logis. 
 Manajemen Hak Akses File Setiap file di Linux memiliki hak akses yang terdiri dari read (baca), write (tulis), dan execute (eksekusi), yang diberlakukan untuk owner, group , dan others.
 Interpretasi Output Perintah Dasar: Perintah Linux menghasilkan output standar yang dapat berupa teks, daftar file, atau pesan error, yang yang berguna untuk membantu pengguna memahami status sistem.
+
+
 ---
 
 ## Langkah Praktikum
@@ -124,11 +121,6 @@ r (read): Pengguna lain (yang bukan pemilik dan bukan anggota grup) memiliki izi
 chown: Mengubah kepemilikan berkas atau direktori. dapat mengubah siapa pemilik (user) dan/atau grup dari sebuah berkas.
 chmod: Mengubah izin akses (permissions) pada berkas atau direktori serta  menentukan siapa (pemilik, grup, atau lainnya).
 
-=======
-1. Apa fungsi dari perintah chmod?
-2. Apa arti dari kode permission rwxr-xr--?
-3. Jelaskan perbedaan antara chown dan chmod?
->>>>>>> 8314c049c4a8089d8d1f6f65ae90df017d769b03
 
 ---
 
