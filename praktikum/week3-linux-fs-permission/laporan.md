@@ -5,15 +5,11 @@ Topik: Manajemen File dan Permission di Linux
 ---
 
 ## Identitas
-<<<<<<< HEAD
+
 - **Nama**  :virli a'inun subroto   
 - **NIM**   :250202913    
 - **Kelas** :1ikrb
-=======
-- **Nama**  :
-- **NIM**   :
-- **Kelas** :
->>>>>>> 8314c049c4a8089d8d1f6f65ae90df017d769b03
+
 
 ---
 
@@ -124,11 +120,6 @@ r (read): Pengguna lain (yang bukan pemilik dan bukan anggota grup) memiliki izi
 chown: Mengubah kepemilikan berkas atau direktori. dapat mengubah siapa pemilik (user) dan/atau grup dari sebuah berkas.
 chmod: Mengubah izin akses (permissions) pada berkas atau direktori serta  menentukan siapa (pemilik, grup, atau lainnya).
 
-=======
-1. Apa fungsi dari perintah chmod?
-2. Apa arti dari kode permission rwxr-xr--?
-3. Jelaskan perbedaan antara chown dan chmod?
->>>>>>> 8314c049c4a8089d8d1f6f65ae90df017d769b03
 
 ---
 
