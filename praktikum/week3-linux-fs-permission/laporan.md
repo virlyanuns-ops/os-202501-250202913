@@ -92,10 +92,13 @@ Membuat daftar semua berkas dan direktori, termasuk yang tersembunyi (yang naman
 
 ---
 
-## Kesimpulan
+## Kesimpulan 
+
 Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 1.Manajemen hak akses file melalui chmod dan chown menunjukkan pentingnya kontrol keamanan, di mana hak akses dapat diatur untuk owner, group, dan others, seperti mengubah file menjadi mode 600 untuk membatasi akses hanya kepada pemilik.
+
 2.Melalui analisis output perintah dan penyusunan laporan, menekankan kemampuan interpretasi hasil eksekusi Linux serta dokumentasi yang tepat waktu ke Git Repository.
+
 3.Secara keseluruhan, praktikum ini membangun fondasi kuat untuk penggunaan Linux dalam tugas sehari-hari, seperti administrasi sistem dan pengembangan perangkat lunak.
 ---
 
