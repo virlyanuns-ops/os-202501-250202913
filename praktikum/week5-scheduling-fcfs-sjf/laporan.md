@@ -75,9 +75,9 @@ Tuliskan potongan kode atau perintah utama:
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/tabel_percobaan_FCFS_SJF.png)
-[Screenshot hasil](screenshots/Eksperimen_1_FCFS.png)
-[Screenshot hasil](screenshots/Eksperimen_2_SJf.png)
-[Screenshot hasil](screenshots/Perbandingan_hasil_FCFS_SJF.png)
+![Screenshot hasil](screenshots/Eksperimen1_FCFS.png)
+![Screenshot hasil](screenshots/Eksperimen2_SJF.png)
+![Screenshot hasil](screenshots/Perbandingan_hasil_FCFS_SJF.png)
 
 ---
 
