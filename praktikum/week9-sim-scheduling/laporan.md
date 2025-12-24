@@ -24,19 +24,22 @@
 
 ## Dasar Teori
 1. Definisi Penjadwalan CPU
-Penjadwalan CPU adalah proses yang menentukan proses mana dalam antrean ready yang akan dialokasikan ke CPU untuk dieksekusi. 
+- Penjadwalan CPU adalah proses yang menentukan proses mana dalam antrean ready yang akan dialokasikan ke CPU untuk dieksekusi. 
 
-2. Kriteria PenjadwalanUntuk mengukur kinerja algoritma penjadwalan, terdapat beberapa parameter utama yang digunakan dalam simulasi:Waiting Time (WT): Total waktu yang dihabiskan suatu proses untuk menunggu di antrean ready.Turnaround Time (TAT): Total waktu dari saat proses tiba hingga proses tersebut selesai dieksekusi (TAT = Completion\ Time - Arrival\ Time).Burst Time: Waktu yang dibutuhkan oleh proses untuk menyelesaikan eksekusinya pada CPU.Arrival Time: Waktu saat proses masuk ke dalam antrean ready.
-3. Algoritma FCFS (First-Come, First-Served)
-FCFS adalah algoritma penjadwalan CPU yang paling sederhana. Sifat utamanya adalah
-Non-preemptive: Sekali CPU dialokasikan ke sebuah proses, proses tersebut akan memegang CPU sampai selesai atau memintanya berhenti.
-Prinsip Antrean: Proses yang meminta CPU pertama kali akan dilayani terlebih dahulu (FIFO).
-Kelemahan: Berpotensi menyebabkan Convoy Effect, di mana proses-proses pendek harus menunggu sangat lama karena ada proses panjang yang sedang berjalan di depannya.
-4. Algoritma SJF (Shortest Job First)
-SJF memprioritaskan proses yang memiliki Burst Time terkecil untuk dikerjakan lebih dulu.
-SJF Non-preemptive: Jika ada proses baru datang dengan Burst Time lebih pendek saat proses lain sedang berjalan, CPU tidak akan berpindah hingga proses yang sedang berjalan selesai.
-Optimalitas: Secara teoritis, SJF memberikan rata-rata Waiting Time minimum untuk sekumpulan proses tertentu.
+2. Parameter Perhitungan Kinerja
+- Arrival Time (AT): Waktu saat proses masuk ke dalam antrean
+- Burst Time (BT): Durasi waktu yang dibutuhkan proses untuk dieksekusi oleh CPU
+- Waiting Time (WT): Selisih antara waktu mulai eksekusi dengan waktu kedatangan.
+- Turnaround Time (TAT): Total waktu yang dihabiskan proses sejak datang hingga selesai. Rumusnya adalah TAT = Finish\_Time - Arrival\_Time
 
+3. Logika Pemrograman Simulasi
+- Manajemen Data: Penggunaan modul csv memungkinkan penyimpanan dataset secara terstruktur sehingga memudahkan pengujian ulang dengan data yang berbeda.
+- Penanganan Waktu Luang (Idle): Kode program menyertakan logika if current_time untuk menangani kondisi di mana CPU harus menunggu jika belum ada proses yang tiba di antrean.
+- Akumulasi Rata-rata: Efisiensi sistem secara keseluruhan dihitung dengan merata-ratakan WT dan TAT dari seluruh proses yang ada.
+4. Analisis Hasil Berdasarkan Data
+- Proses P1 yang datang pertama kali (AT 0) memiliki waktu tunggu sebesar 0.
+- Semakin lama sebuah proses mengantre di belakang proses dengan Burst Time yang besar, maka Waiting Time-nya akan semakin tinggi (seperti P4 dengan WT 18).
+- Rata-rata waktu tunggu yang dihasilkan adalah 8.75 dan rata-rata waktu putar (Turnaround Time) adalah 14.75.
 ---
 
 ## Langkah Praktikum
@@ -83,17 +86,22 @@ Optimalitas: Secara teoritis, SJF memberikan rata-rata Waiting Time minimum untu
 ## Kode / Perintah
 Tuliskan potongan kode atau perintah utama:
 ```bash
-uname -a
-lsmod | head
-dmesg | head
+dataset_content = [
+    ["Process", "ArrivalTime", "BurstTime"],
+    ["P1", 0, 6],
+    ["P2", 1, 8],
+    ["P3", 2, 7],
+    ["P4", 3, 3]
+] [cite: 1]
 ```
 
 ---
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+![Screenshot hasil](screenshots/Simulasi%20Scheduling%20CPU(1).png)
+![Screenshot hasil](screenshots/Simulasi%20Scheduling%20CPU(2).png)
+![Screenshot hasil](screenshots/run.png)
 ---
 
 ## Analisis
@@ -120,19 +128,22 @@ Berdasarkan hasil eksekusi program terhadap dataset uji:
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+- Praktikum ini berhasil menjembatani pemahaman teori penjadwalan CPU dengan praktik pemrograman.
+ 
+ - Simulasi menunjukkan bahwa meskipun FCFS mudah diimplementasikan, waktu tunggu dapat membengkak (efek konvoi) jika proses awal memiliki burst time yang besar.
+ - memungkinkan pengujian dataset dalam skala besar dengan tingkat akurasi yang tetap terjaga, menghindari risiko kesalahan hitung
 
 ---
 
 ## Quiz
 1. Mengapa simulasi diperlukan untuk menguji algoritma scheduling?
-karena lingkungan sistem operasi yang asli sangat kompleks. Dengan simulasi, kita bisa memprediksi performa algoritma (seperti efisiensi CPU dan waktu tunggu) dalam berbagai skenario tanpa harus mengganggu operasional sistem yang sebenarnya.
+- karena lingkungan sistem operasi yang asli sangat kompleks. Dengan simulasi, kita bisa memprediksi performa algoritma (seperti efisiensi CPU dan waktu tunggu) dalam berbagai skenario tanpa harus mengganggu operasional sistem yang sebenarnya.
 
 2. Apa perbedaan hasil simulasi dengan perhitungan manual jika dataset besar?
-Pada dataset besar, perhitungan manual sangat rentan terhadap human error (salah hitung) dan memakan waktu sangat lama. Simulasi komputer memberikan akurasi matematis yang konsisten dan kecepatan eksekusi yang stabil terlepas dari jumlah datanya.
+- Pada dataset besar, perhitungan manual sangat rentan terhadap human error (salah hitung) dan memakan waktu sangat lama. Simulasi komputer memberikan akurasi matematis yang konsisten dan kecepatan eksekusi yang stabil terlepas dari jumlah datanya.
 
 3. Algoritma mana yang lebih mudah diimplementasikan? 
-FCFS (First-Come, First-Served) adalah yang paling mudah diimplementasikan karena logikanya hanya menggunakan struktur data antrean (Queue) sederhana berdasarkan waktu kedatangan, tanpa perlu melakukan pemilahan ulang (sorting) burst time setiap kali ada proses baru masuk (seperti pada SJF).
+- FCFS (First-Come, First-Served) adalah yang paling mudah diimplementasikan karena logikanya hanya menggunakan struktur data antrean (Queue) sederhana berdasarkan waktu kedatangan, tanpa perlu melakukan pemilahan ulang (sorting) burst time setiap kali ada proses baru masuk (seperti pada SJF).
 
 
 
@@ -140,8 +151,10 @@ FCFS (First-Come, First-Served) adalah yang paling mudah diimplementasikan karen
 
 ## Refleksi Diri
 Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
+- Apa bagian yang paling menantang minggu ini? 
+pemahaman instruksi atau perintah yang diberikan dalam modul.
 - Bagaimana cara Anda mengatasinya?  
+berdiskusi dengan teman 
 
 ---
 
