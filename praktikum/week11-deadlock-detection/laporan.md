@@ -152,7 +152,7 @@ Tuliskan secara singkat:
 - Apa bagian yang paling menantang minggu ini?  
 menjalankan kode python nya
 - Bagaimana cara Anda mengatasinya?  
-terus mencoba
+terus mencoba😊
 
 ---
 
