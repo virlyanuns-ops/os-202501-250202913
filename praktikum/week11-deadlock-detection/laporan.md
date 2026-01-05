@@ -91,20 +91,36 @@ df = pd.read_csv('dataset_deadlock.csv')``
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-Membaca dataset CSV
-Membentuk Wait-For Graph
-Menampilkan hasil
+
+![Screenshot hasil](screenshots/Deteksi_Deadlock(1).png)
+![Screenshot hasil](screenshots/Deteksi_Deadlock(2).png)
+![Screenshot hasil](screenshots/Deteksi_Deadlock(hasil).png)
+
 ---
 
 ## Analisis
 - Jelaskan mengapa deadlock terjadi atau tidak terjadi.  
+  - deadlock terjadi karena Siklus pada Wait-For Graph: Program menemukan bahwa Proses A menunggu sumber daya yang dipegang Proses B, dan Proses B ternyata menunggu sumber daya yang sedang dipegang oleh Proses A (atau melalui perantara Proses C). 
+
+  - deadlock tidak terjadi karena Hubungan antar proses dalam graf berbentuk garis lurus atau pohon (tree), bukan lingkaran. Artinya, selalu ada setidaknya satu proses yang bisa mendapatkan semua resource yang ia butuhkan, menyelesaikannya, dan melepaskan resource tersebut untuk proses lain.
+
 - Kaitkan hasil dengan teori deadlock (empat kondisi).
+   - Mutual Exclusion: Meskipun sistem memiliki sumber daya yang bersifat eksklusif (hanya bisa digunakan satu proses pada satu waktu), deadlock tidak terjadi karena alokasi sumber daya dilakukan secara berurutan.
+
+  - Hold and Wait: Setiap proses dalam simulasi ini memang memegang sumber daya (Hold) dan meminta sumber daya tambahan (Wait), namun permintaan tersebut dapat dipenuhi oleh sistem tanpa harus menunggu selamanya.
+
+   - No Preemption: Sumber daya tidak diambil secara paksa oleh sistem. Hasil "Aman" menunjukkan bahwa setiap proses mampu melepaskan sumber dayanya secara sukarela setelah tugasnya selesai tanpa menyebabkan hambatan permanen bagi proses lain.
+
+   - Circular Wait: Kondisi ini adalah faktor penentu utama; pada Wait-For Graph yang dibentuk oleh program, tidak ditemukan adanya siklus (cycle). Karena rantai tunggu yang melingkar tidak terbentuk, maka seluruh proses (P0 hingga P4) dapat menyelesaikan eksekusinya satu per satu.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
+- Deteksi Melalui Siklus Graf: Praktikum ini membuktikan bahwa deadlock dapat diidentifikasi secara akurat dengan membangun Wait-For Graph dan mencari adanya Circular Wait (siklus) menggunakan algoritma penelusuran seperti DFS.
+
+- Kondisi Keamanan Sistem: Sistem dinyatakan dalam kondisi Aman (Safe) apabila tidak ditemukan siklus dalam graf, yang berarti setidaknya salah satu dari empat kondisi Coffman tidak terpenuhi, sehingga proses dapat menyelesaikan eksekusi secara bergiliran.
+
+- Pentingnya Dataset yang Akurat: Keberhasilan simulasi deteksi sangat bergantung pada representasi data alokasi dan permintaan sumber daya dalam file CSV, yang mencerminkan interaksi nyata antara proses dan resource di dalam sistem operasi.
 
 ---
 
@@ -134,7 +150,9 @@ Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 ## Refleksi Diri
 Tuliskan secara singkat:
 - Apa bagian yang paling menantang minggu ini?  
+menjalankan kode python nya
 - Bagaimana cara Anda mengatasinya?  
+terus mencoba
 
 ---
 
