@@ -94,8 +94,6 @@ Berdasarkan hasil praktikum, sistem operasi guest (Ubuntu) berjalan di dalam lin
 
 - Analisis Performa Resource
 
-Berdasarkan praktikum yang telah dilakukan, berikut adalah analisis perbandingan penggunaan resource pada Guest OS (Ubuntu) dalam dua kondisi yang berbeda:
-
 #### **Tabel Perbandingan Resource**
 | Kondisi Sistem | Penggunaan CPU (Avg) | Penggunaan Memori (RAM) | Status Network (Total Received) |
 | :--- | :--- | :--- | :--- |
