@@ -101,7 +101,7 @@ Berdasarkan praktikum yang telah dilakukan, berikut adalah analisis perbandingan
 | :--- | :--- | :--- | :--- |
 | **Idle / Standby** | 41.7% | 1.4 GB (70.6%) | 24.0 KB |
 | **Beban Tinggi (Buka Firefox)** | 88.6%  | 1.8 GB(89.1%)  | 2.2 MB  |
-|  |  |  | |
+
 #### 
 1. **Efisiensi CPU**: 
    - Pada saat sistem baru berjalan (idle), penggunaan CPU stabil di kisaran **40%**. 
