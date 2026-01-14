@@ -92,7 +92,7 @@ Berdasarkan hasil praktikum, sistem operasi guest (Ubuntu) berjalan di dalam lin
   -  Keamanan (Hardening): Jika terjadi kerusakan sistem atau serangan malware di dalam guest OS, dampak tersebut akan terkurung (sandboxed) di dalam mesin virtual saja, sehingga sistem utama tetap aman.
 
 
-- ### 2. Analisis Performa Resource
+- Analisis Performa Resource
 
 Berdasarkan praktikum yang telah dilakukan, berikut adalah analisis perbandingan penggunaan resource pada Guest OS (Ubuntu) dalam dua kondisi yang berbeda:
 
