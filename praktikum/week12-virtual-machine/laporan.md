@@ -65,37 +65,58 @@ Topik:Virtualisasi Menggunakan Virtual Machine
 ---
 
 ## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
 ```
-
+Instalasi Virtual Machine
+Konfigurasi Resource VM
+Analisis Performa Resource
+```
 ---
+
 
 ## Hasil Eksekusi
 Sertakan screenshot hasil percobaan atau diagram:
 ![Screenshot hasil](screenshots/instalasi_vm.png.jpeg).
 
-![Screenshot hasil](screenshots/konfigurasi_resource.png.jpeg)
+![Screenshot hasil](screenshots/konfigurasi_resource.os_guest_running.png(1).jpeg)
 
-![Screenshot hasil](screenshots/os_guest_running.png.jpeg)
+![Screenshot hasil](screenshots/konfigurasi_resource.os_guest_running.png(2).jpeg)
 
-![Screenshot hasil](screenshots/konfigurasi_resource.png%20(2).jpeg)
 
-![Screenshot hasil](screenshots )
 ---
 
 ## Analisis
-- Jelaskan bagaimana VM menyediakan isolasi antara host dan guest.  
-VM bekerja dengan cara memisahkan sumber daya perangkat keras fisik dari sistem operasi guest. Hypervisor bertindak sebagai perantara yang memastikan bahwa OS guest hanya dapat mengakses sumber daya (CPU, RAM, storage) yang telah dialokasikan secara spesifik untuknya. OS guest tidak memiliki akses langsung ke memori atau proses yang sedang berjalan di OS host, sehingga menciptakan batasan yang tegas antara keduanya.
+- Mekanisme Isolasi (Sandboxing)
+Berdasarkan hasil praktikum, sistem operasi guest (Ubuntu) berjalan di dalam lingkungan terisolasi yang dikelola oleh VirtualBox sebagai hypervisor.
+  - Isolasi Resource: Perubahan aktivitas di dalam Ubuntu, seperti saat membuka Firefox yang meningkatkan penggunaan CPU hingga 92.5%, tidak akan mengganggu stabilitas sistem operasi host. Ini dikarenakan hypervisor membatasi akses guest hanya pada sumber daya yang telah dialokasikan (misal: 2 CPU dan 2.0 GB RAM).
 
-- Kaitkan dengan konsep *sandboxing* dan *hardening* OS. 
-  - sandboxing Jika OS guest terkena malware atau mengalami kerusakan sistem, dampak tersebut akan terkurung di dalam VM saja. Karena adanya batasan sandboxing ini, kode berbahaya dari guest tidak dapat "melompat" untuk menginfeksi atau merusak OS host.
+  -  Keamanan (Hardening): Jika terjadi kerusakan sistem atau serangan malware di dalam guest OS, dampak tersebut akan terkurung (sandboxed) di dalam mesin virtual saja, sehingga sistem utama tetap aman.
 
-   - hardening  
-  Dengan menjalankan aplikasi yang berisiko di dalam VM, kita memperkecil luas permukaan serangan (attack surface) pada sistem utama (host). Hardening dilakukan dengan membatasi resource yang tersedia bagi VM, sehingga jika terjadi serangan, penyerang hanya memiliki akses terbatas pada sumber daya yang telah dikonfigurasi sebelumnya.
+
+- ### 2. Analisis Performa Resource
+
+Berdasarkan praktikum yang telah dilakukan, berikut adalah analisis perbandingan penggunaan resource pada Guest OS (Ubuntu) dalam dua kondisi yang berbeda:
+
+#### **Tabel Perbandingan Resource**
+| Kondisi Sistem | Penggunaan CPU (Avg) | Penggunaan Memori (RAM) | Status Network (Total Received) |
+| :--- | :--- | :--- | :--- |
+| **Idle / Standby** | 41.7% | 1.4 GB (70.6%) | 24.0 KB |
+| **Beban Tinggi (Buka Firefox)** | 88.6%  | 1.8 GB(89.1%)  | 2.2 MB  |
+|  |  |  | |
+#### 
+1. **Efisiensi CPU**: 
+   - Pada saat sistem baru berjalan (idle), penggunaan CPU stabil di kisaran **40%**. 
+   - Namun, ketika aplikasi browser Firefox dijalankan, terjadi lonjakan penggunaan CPU hingga mencapai **92.5%** pada core kedua. Hal ini menunjukkan bahwa aplikasi modern memerlukan daya komputasi yang signifikan pada lingkungan virtual.
+
+2. **Manajemen Memori**:
+   - Alokasi RAM sebesar **2.0 GB** hampir mencapai batas maksimal (**89.1%**) saat digunakan untuk browsing. 
+   - Sistem mulai menggunakan *Cache* sebesar **546.3 MB** untuk menopang performa. Jika penggunaan memori melebihi 2.0 GB, sistem kemungkinan besar akan mengalami *thrashing* atau melambat secara signifikan karena keterbatasan alokasi fisik dari Host OS.
+
+3. **Isolasi Resource**:
+   - Meskipun CPU di dalam VM menyentuh angka 90%, mekanisme *Hypervisor* pada VirtualBox memastikan bahwa penggunaan tersebut tetap terisolasi di dalam *container* VM. 
+   - Hal ini mencegah Guest OS untuk mengambil seluruh sumber daya CPU milik Host OS secara tidak terkendali, sehingga stabilitas komputer utama tetap terjaga.
+
+4. **Aktivitas Jaringan**:
+   - Terjadi peningkatan trafik data yang signifikan dari **24.0 KB** menjadi **2.2 MB** setelah membuka halaman web. Ini membuktikan bahwa kartu jaringan virtual (Virtual Network Adapter) berfungsi dengan baik menjembatani koneksi internet dari Host ke Guest.
 
 ---
 
