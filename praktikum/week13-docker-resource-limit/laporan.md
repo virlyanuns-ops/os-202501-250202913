@@ -108,7 +108,7 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
--Eksekusi Tanpa Limit (Normal):
+- Eksekusi Tanpa Limit (Normal):
 Saat menjalankan ``docker run --rm week13-resource-limit``, program berjalan hingga tuntas.
 Alokasi RAM berhasil mencapai angka target 500 MB dan memunculkan pesan "SEMUA PROSES SELESAI".
 
