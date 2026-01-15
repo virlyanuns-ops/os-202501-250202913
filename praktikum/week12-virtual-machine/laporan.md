@@ -7,7 +7,7 @@ Topik:Virtualisasi Menggunakan Virtual Machine
 |nama kelompok|nim| kelas|
 |------------------|---------------------------|------------------|
 |Virli A'inun Subroto| 250202913|1IKRB|
-|Syafi'iyah Rahmadani| 250202913|1IKRB|
+|Syafi'iyah Rahmadani| 250202968|1IKRB|
 
 ---
 
