@@ -21,7 +21,10 @@ Topik:  Docker – Resource Limit (CPU & Memori)
 ---
 
 ## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
+1. Containerization & Isolasi
+2. Mekanisme Cgroups (Control Groups)
+3. Resource Limit (CPU & Memori)
+4. Monitoring Resource
 
 ---
 
@@ -105,15 +108,20 @@ Sertakan screenshot hasil percobaan atau diagram:
 ---
 
 ## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
+-Eksekusi Tanpa Limit (Normal):
+Saat menjalankan ``docker run --rm week13-resource-limit``, program berjalan hingga tuntas.
+Alokasi RAM berhasil mencapai angka target 500 MB dan memunculkan pesan "SEMUA PROSES SELESAI".
+
+- Eksekusi Dengan Limit Memori:
+saat menjalankan perintah ```docker run --rm --memory="250m" week13-resource-limit``` program akan terhenti seketika saat mencoba melakukan alokasi memori ke tahap berikutnya (300 MB) karena telah melampaui batas 250 MB yang ditentukan. Hal ini memicu kernel untuk mengirimkan sinyal penghentian paksa guna melindungi stabilitas sistem host.
 
 ---
 
 ## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
 
+1. Efektivitas Mekanisme Cgroups: Fitur resource limit pada Docker terbukti efektif dalam membatasi penggunaan sumber daya fisik.kontainer tanpa limit dapat mengalokasi RAM hingga 500 MB, sementara kontainer dengan limit --memory="250m" dihentikan paksa oleh sistem saat melampaui ambang batas tersebut.
+
+2. pembatasan sumber daya sangat krusial dalam lingkungan multi-kontainer untuk menjaga stabilitas sistem host, mencegah kebocoran memori dari satu aplikasi memengaruhi aplikasi lainnya (Noisy Neighbor Effect), dan menghindari kegagalan sistem total akibat resource exhaustion.
 ---
 
 ## Quiz
