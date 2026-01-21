@@ -62,7 +62,7 @@ Pastikan Docker Desktop / Docker Engine sudah terinstal dan berjalan.
 ```python main.py```
 
 
-### Analisis Hasil Simulasi (Berdasarkan Screenshot)
+### Analisis Hasil Simulasi 
 1. Hasil CPU Scheduling (Simulasi Musik)
 Berdasarkan data lagu seperti Blue - Yung Kai dan Untitled - Rex Orange, diperoleh performa sistem sebagai berikut:
 
@@ -70,7 +70,7 @@ Berdasarkan data lagu seperti Blue - Yung Kai dan Untitled - Rex Orange, diperol
 
 - Rata-rata Waiting Time: 5.00
 
-2. Hasil Memory Management (Simulasi RAM)
+2. Hasil simulasi  Multitasking leptop (Management RAM)
 Simulasi dilakukan dengan kapasitas 3 Slot RAM:
 - Total MISS: 5 (Terjadi saat aplikasi baru harus dimuat ke slot kosong atau mengganti aplikasi lama).
 - Skor HIT: 37.50% (Terjadi saat aplikasi yang diminta sudah tersedia di RAM, seperti pada langkah ke-4, 6, dan 8).
@@ -82,6 +82,16 @@ Simulasi dilakukan dengan kapasitas 3 Slot RAM:
 Anda dapat mengubah data simulasi di folder data/:
 1. data/processes.csv 
     - Format: NamaMusik,WaktuDatang,Durasi
+
+contoh:
+``` 
+Nama Musik, Waktu Datang, Durasi Musik
+Blue - Yung Kai, 0, 3
+Untitled - Rex Orange, 1, 3
+Peradaban - Feast., 2, 5
+Sial - Mahalini, 3, 4
+Double Take - Dhruv, 4, 3
+```
 2. data/pages.txt 
     - Format: Nama aplikasi
 
