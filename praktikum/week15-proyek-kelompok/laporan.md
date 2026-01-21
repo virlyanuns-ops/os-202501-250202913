@@ -1,80 +1,89 @@
 
-# Laporan Praktikum Minggu [X]
-Topik: [Tuliskan judul topik, misalnya "Arsitektur Sistem Operasi dan Kernel"]
+### README.md
+---
+### Mini Simulasi 
+---
+Sistem Operasi
+Aplikasi berbasis terminal (CLI) ini dibuat untuk mensimulasikan dua konsep inti Sistem Operasi: CPU Scheduling dan Memory Management. Proyek ini dikembangkan sebagai Tugas Praktikum Minggu 15.
 
+
+### Fitur Utama
+---
+1. Simulasi Pemutaran Musik (CPU Scheduling)
+
+    - Algoritma: First-Come First-Served (FCFS).
+    - Analogi: Antrean pemutaran lagu (Playlist). Lagu yang masuk ke antrean lebih awal akan diputar hingga selesai sebelum lagu berikutnya dimulai.
+    - Output: Tabel detail yang mencakup Waktu Datang, Durasi Musik, Waktu Selesai, Turnaround Time (TAT), dan Waktu Tunggu.
+
+2. Simulasi Multitasking Laptop (Memory Management)
+
+    - Algoritma: First-In First-Out (FIFO) Page Replacement.
+
+    - Analogi: Manajemen RAM pada laptop dengan kapasitas terbatas (3 Slot). Jika RAM penuh dan aplikasi baru dibuka, aplikasi yang paling lama berada di RAM akan dihapus.
+
+    - Output: Visualisasi status HIT (aplikasi sudah ada di RAM) atau MISS (aplikasi harus dimuat ke RAM/menggantikan yang lama).
 ---
 
-## Identitas
-- **Nama**  : [Nama Mahasiswa]  
-- **NIM**   : [NIM Mahasiswa]  
-- **Kelas** : [Kelas]
-
+### Struktur Folder
 ---
 
-## Tujuan
-Tuliskan tujuan praktikum minggu ini.  
-Contoh:  
-> Mahasiswa mampu menjelaskan fungsi utama sistem operasi dan peran kernel serta system call.
+``` Plaintext
+code/
+├── main.py              # Entry point aplikasi (Menu Utama)
+├── cpu_scheduling.py    # Modul logika FCFS (Simulasi Musik)
+├── page_replacement.py  # Modul logika FIFO (Simulasi RAM)
+├── Dockerfile           # Konfigurasi container Docker
+├── README.md            # Dokumentasi ini
+└── data/                # Dataset simulasi
+    ├── processes.csv    # Data untuk antrean musik
+    └── pages.txt        # Data riwayat penggunaan aplikasi 
 
----
-
-## Dasar Teori
-Tuliskan ringkasan teori (3–5 poin) yang mendasari percobaan.
-
----
-
-## Langkah Praktikum
-1. Langkah-langkah yang dilakukan.  
-2. Perintah yang dijalankan.  
-3. File dan kode yang dibuat.  
-4. Commit message yang digunakan.
-
----
-
-## Kode / Perintah
-Tuliskan potongan kode atau perintah utama:
-```bash
-uname -a
-lsmod | head
-dmesg | head
 ```
+---
+### Cara Menjalankan
+---
+aplikasi telah berhasil di-build dan dijalankan menggunakan Docker dengan nama image pemutaran_musik.
+
+### Cara 1: Menggunakan Docker (Disarankan)
+Pastikan Docker Desktop / Docker Engine sudah terinstal dan berjalan.
+1. Build Image Buka terminal di dalam folder code/, lalu jalankan:
+
+```docker build -t pemutaran_musik .```
+
+2. Jalankan Container Gunakan run -it agar bisa berinteraksi dengan menu aplikasi:
+
+
+```docker run -it pemutaran_musik```
+
+
+### Cara 2: Menjalankan Secara Manual (Local Host)
+
+
+```python main.py```
+
+
+### Analisis Hasil Simulasi (Berdasarkan Screenshot)
+1. Hasil CPU Scheduling (Simulasi Musik)
+Berdasarkan data lagu seperti Blue - Yung Kai dan Untitled - Rex Orange, diperoleh performa sistem sebagai berikut:
+
+- Rata-rata Turnaround Time (TAT): 8.60
+
+- Rata-rata Waiting Time: 5.00
+
+2. Hasil Memory Management (Simulasi RAM)
+Simulasi dilakukan dengan kapasitas 3 Slot RAM:
+- Total MISS: 5 (Terjadi saat aplikasi baru harus dimuat ke slot kosong atau mengganti aplikasi lama).
+- Skor HIT: 37.50% (Terjadi saat aplikasi yang diminta sudah tersedia di RAM, seperti pada langkah ke-4, 6, dan 8).
+- Aplikasi yang disimulasikan: Chrome, Spotify, Word, VS Code, dan Zoom.
 
 ---
-
-## Hasil Eksekusi
-Sertakan screenshot hasil percobaan atau diagram:
-![Screenshot hasil](screenshots/example.png)
-
+### Konfigurasi Dataset
 ---
+Anda dapat mengubah data simulasi di folder data/:
+1. data/processes.csv 
+    - Format: NamaMusik,WaktuDatang,Durasi
+2. data/pages.txt 
+    - Format: Nama aplikasi
 
-## Analisis
-- Jelaskan makna hasil percobaan.  
-- Hubungkan hasil dengan teori (fungsi kernel, system call, arsitektur OS).  
-- Apa perbedaan hasil di lingkungan OS berbeda (Linux vs Windows)?  
-
----
-
-## Kesimpulan
-Tuliskan 2–3 poin kesimpulan dari praktikum ini.
-
----
-
-## Quiz
-1. [Pertanyaan 1]  
-   **Jawaban:**  
-2. [Pertanyaan 2]  
-   **Jawaban:**  
-3. [Pertanyaan 3]  
-   **Jawaban:**  
-
----
-
-## Refleksi Diri
-Tuliskan secara singkat:
-- Apa bagian yang paling menantang minggu ini?  
-- Bagaimana cara Anda mengatasinya?  
-
----
-
-**Credit:**  
-_Template laporan praktikum Sistem Operasi (SO-202501) – Universitas Putra Bangsa_
+contoh:
+```Chrome,Spotify,Word,Chrome,VS Code,Spotify,Zoom,Word```
